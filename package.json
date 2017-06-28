@@ -1,0 +1,25 @@
+{
+  "name": "basic_mean_fullstack",
+  "version": "1.0.0",
+  "description": "To prepare for a job interview coding assignment, I was asked to prepare a basic full stack application using the stack I learned at The Iron Yard.  This application is a basic web form that will allow CRUD (create, read, update, delete) operations against a \"user\" object stored in a database.",
+  "main": "app.js",
+  "dependencies": {
+    "angular": "^1.6.4",
+    "body-parser": "^1.17.2",
+    "express": "^4.15.3"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/davidasteed/basic_MEAN_fullstack.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/davidasteed/basic_MEAN_fullstack/issues"
+  },
+  "homepage": "https://github.com/davidasteed/basic_MEAN_fullstack#readme"
+}

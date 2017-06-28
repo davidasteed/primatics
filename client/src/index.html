@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang='en' ng-app='mean'>
+  <head>
+    <meta charset="utf-8">
+    <title>basic_MEAN_fullstack</title>
+    <link rel='stylesheet' href='css/style.css'>
+  </head>
+  <body>
+    <article>
+      <header ng-controller='CrudController as crudCtl'>
+
+        <aside>Did we call create()?:  {{crudCtl.calledCreateObject}}</aside>
+
+        <h1>CRUDs against MongoDB object</h1>
+        <form
+          name='create'
+          ng-submit='create.$valid && crudCtl.create(crudCtl.inputObject);'
+          novalidate>
+          <input
+            name='objectName'
+            type='text'
+            placeholder='Create object'
+            required
+            ng-model='crudCtl.inputObject'>
+          <input type='submit' value='create'>
+        </form>
+      </header>
+
+    </article>
+
+    <script src='/js/angular.js'></script>
+    <script src='/js/mean.module.js'></script>
+    <script src='/js/crud.service.js'></script>
+    <script src='/js/crud.controller.js'></script>
+  </body>
+</html>
