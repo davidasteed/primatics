@@ -19,13 +19,7 @@
 
       <h1>Students</h1>
       <div class="panel panel-default">
-        <!-- Default panel contents -->
         <div class="panel-heading">Students</div>
-          <!-- <div class="panel-body"> -->
-            <!-- <p></p> -->
-          <!-- </div> -->
-
-        <!-- Table -->
           <table class="table table-bordered">
             <tr>
               <th>Name</th>
@@ -33,19 +27,28 @@
               <th>Phone #</th>
               <th>Edit/Delete</th>
             </tr>
-            <tr>
-              <td>Brian</td>
-              <td>1982</td>
-              <td>(123) 456 7890</td>
-              <td><i class="fa fa-pencil" aria-hidden="true"></i>
-                  <i class="fa fa-times" aria-hidden="true"></i>
+
+            <tr ng-repeat='student in studentCtl.studentList'>
+              <td>{{student.name}}</td>
+              <td>{{student.dob}}</td>
+              <td>{{student.phone}}</td>
+              <td><i
+                    class="fa fa-pencil"
+                    aria-hidden="true"></i>
+                  <i
+                    class="fa fa-times"
+                    ng-click='studentCtl.deleteStudent(student.name)'
+                    aria-hidden="true">
+                  </i>
               </td>
             </tr>
 
             <form
               name='create'
               ng-submit='create.$valid &&
-                studentCtl.create(studentCtl.name, studentCtl.dob, studentCtl.phone);'
+                studentCtl.create(studentCtl.name, studentCtl.dob, studentCtl.phone);
+                create.$setPristine();
+                create.$setUntouched()'
               novalidate>
 
               <tr>
@@ -84,9 +87,7 @@
             </form>
           </table>
 
-          </table>
-
-        <aside>Did we call create()?:  {{studentCtl.calledCreateStudent}}</aside>
+        <!-- <aside>Did we call create()?:  {{studentCtl.calledCreateStudent}}</aside> -->
 
       </div>
     </article>
