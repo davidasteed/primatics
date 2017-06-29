@@ -7,24 +7,70 @@
   </head>
   <body>
     <article>
-      <header ng-controller='CrudController as crudCtl'>
+      <section ng-controller='CrudController as crudCtl'>
 
-        <aside>Did we call create()?:  {{crudCtl.calledCreateObject}}</aside>
+        <!-- <aside>Did we call create()?:  {{crudCtl.calledCreateObject}}</aside> -->
 
-        <h1>CRUDs against MongoDB object</h1>
+        <h1>CRUD operations against MongoDB database</h1>
         <form
           name='create'
-          ng-submit='create.$valid && crudCtl.create(crudCtl.inputObject);'
+          ng-submit='create.$valid && crudCtl.create(crudCtl.createInput);'
           novalidate>
           <input
-            name='objectName'
+            name='createObject'
             type='text'
             placeholder='Create object'
             required
-            ng-model='crudCtl.inputObject'>
+            ng-model='crudCtl.createInput'>
           <input type='submit' value='create'>
         </form>
-      </header>
+
+        <form
+          name='read'
+          ng-submit='read.$valid && crudCtl.read(crudCtl.readInput);'
+          novalidate>
+          <input
+            name='readObject'
+            type='text'
+            placeholder='Read object'
+            required
+            ng-model='crudCtl.readInput'>
+          <input type='submit' value='read'>
+        </form>
+
+        <form
+          name='update'
+          ng-submit='update.$valid && crudCtl.update(crudCtl.oldValue, crudCtl.newValue);'
+          novalidate>
+          <input
+            name='oldValue'
+            type='text'
+            placeholder='Update: old value'
+            required
+            ng-model='crudCtl.oldValue'>
+          <input
+            name='newValue'
+            type='text'
+            placeholder='Update: new value'
+            required
+            ng-model='crudCtl.newValue'>
+          <input type='submit' value='update'>
+        </form>
+
+        <form
+          name='delete'
+          ng-submit='delete.$valid && crudCtl.deleteObj(crudCtl.deleteInput);'
+          novalidate>
+          <input
+            name='deleteObject'
+            type='text'
+            placeholder='Delete object'
+            required
+            ng-model='crudCtl.deleteInput'>
+          <input type='submit' value='delete'>
+        </form>
+
+      </section>
 
     </article>
 

@@ -15,4 +15,5 @@ app.use(require('./middleware/error-handler-middleware.js'));
 
 app.listen(process.env.PORT || 3000, function runExpressNodeServer() {
   console.log('The server is now up');
+  // console.log('the active routes are:', app._router.stack);
 });
