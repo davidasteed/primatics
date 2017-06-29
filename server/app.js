@@ -9,7 +9,7 @@ app.use(express.static(__dirname + '/../client/src'));
 
 app.use(bodyParser.json());
 
-app.use('/api/crudobject', require('./routes/crudObject.routes.js'));
+app.use('/api/primaticsLearning', require('./routes/primaticsLearning.routes.js'));
 
 app.use(require('./middleware/error-handler-middleware.js'));
 

@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang='en' ng-app='primaticsLearning'>
+  <head>
+    <meta charset="utf-8">
+    <title>Students</title>
+    <link rel='stylesheet' href=
+      'https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css'
+      integrity='sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u'
+      crossorigin='anonymous'>
+    <link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css'>
+    <link rel='stylesheet' href='css/style.css'>
+  </head>
+  <body>
+    <article ng-controller='StudentController as studentCtl'>
+      <ul class="nav nav-tabs">
+        <li role="presentation"><a href='./index.html'>Courses</a></li>
+        <li role="presentation" class='active'><a href='./students.html'>Students</a></li>
+      </ul>
+
+      <h1>Students</h1>
+      <div class="panel panel-default">
+        <!-- Default panel contents -->
+        <div class="panel-heading">Students</div>
+          <!-- <div class="panel-body"> -->
+            <!-- <p></p> -->
+          <!-- </div> -->
+
+        <!-- Table -->
+          <table class="table table-bordered">
+            <tr>
+              <th>Name</th>
+              <th>Date of Birth</th>
+              <th>Phone #</th>
+              <th>Edit/Delete</th>
+            </tr>
+            <tr>
+              <td>Brian</td>
+              <td>1982</td>
+              <td>(123) 456 7890</td>
+              <td><i class="fa fa-pencil" aria-hidden="true"></i>
+                  <i class="fa fa-times" aria-hidden="true"></i>
+              </td>
+            </tr>
+
+            <form
+              name='create'
+              ng-submit='create.$valid &&
+                studentCtl.create(studentCtl.name, studentCtl.dob, studentCtl.phone);'
+              novalidate>
+
+              <tr>
+                <td>
+                  <input
+                    class='form-control'
+                    name='name'
+                    type='text'
+                    placeholder='New student name'
+                    required
+                    ng-model='studentCtl.name'>
+                  </td>
+                <td>
+                  <input
+                    class='form-control'
+                    name='dob'
+                    type='text'
+                    placeholder='New Student DoB'
+                    required
+                    ng-model='studentCtl.dob'>
+                </td>
+                <td>
+                  <input
+                    class='form-control'
+                    name='phone'
+                    type='text'
+                    placeholder='New Student phone#'
+                    required
+                    ng-model='studentCtl.phone'>
+                </td>
+                <td>
+                  <i class="fa fa-check-circle-o" aria-hidden="true"></i>
+                  <input type='submit' value='create'>
+                </td>
+              </tr>
+            </form>
+          </table>
+
+          </table>
+
+        <aside>Did we call create()?:  {{studentCtl.calledCreateStudent}}</aside>
+
+      </div>
+    </article>
+
+
+    <script src='/js/angular.js'></script>
+    <script src='/js/primaticsLearning.module.js'></script>
+    <script src='/js/student.service.js'></script>
+    <script src='/js/student.controller.js'></script>
+  </body>
+</html>
