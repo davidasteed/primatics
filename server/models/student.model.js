@@ -6,4 +6,4 @@ let studentSchema = mongoose.Schema({
   phone: String
 });
 
-module.exports = mongoose.model('Student', studentSchema);
+module.exports = mongoose.model('StudentObject', studentSchema);

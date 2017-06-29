@@ -29,7 +29,9 @@
       });
     }
 
-    return {};
+    return {
+      createStudent: createStudent
+    };
   }
 
 }());
